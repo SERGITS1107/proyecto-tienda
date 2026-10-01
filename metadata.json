@@ -1,0 +1,6 @@
+{
+  "name": "Milagritos - Catálogo Moda y Estilo",
+  "description": "Catálogo digital oficial de Milagritos: Moda y Estilo. Colección de prendas, casacas, polos y pantalones para consulta en tienda física.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
