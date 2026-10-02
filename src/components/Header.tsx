@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo a la izquierda/centro */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-2.5">
             <a
               href="#inicio"
               onClick={(e) => {
@@ -57,6 +57,9 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Logo size="md" />
             </a>
+            <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold tracking-wider text-[#A84862] bg-[#FCECEF] border border-[#F4D6DC] rounded-md">
+              VERSIÓN DE PRUEBA
+            </span>
           </div>
 
           {/* Navegación Desktop */}
