@@ -12,14 +12,14 @@ export const QrModal: React.FC<QrModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  // URL del catálogo (dinámica basada en el navegador o URL de producción)
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://milagritos.moda';
+  // URL oficial y definitiva del catálogo para los percheros y tienda física
+  const catalogUrl = 'https://milagritos-cat-logo-moda-y-estilo.ai.studio/';
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=10&color=2D282A&bgcolor=FAF5F6&data=${encodeURIComponent(
-    currentUrl
+    catalogUrl
   )}`;
 
   const handleCopyLink = () => {
-    navigator.clipboard?.writeText(currentUrl);
+    navigator.clipboard?.writeText(catalogUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -82,14 +82,25 @@ export const QrModal: React.FC<QrModalProps> = ({ isOpen, onClose }) => {
 
           {/* URL actual */}
           <div className="space-y-1.5 text-left">
-            <label className="text-[11px] uppercase font-semibold text-[#8C7E84] tracking-wider block">
-              Enlace directo del catálogo (Producción)
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="text-[11px] uppercase font-semibold text-[#8C7E84] tracking-wider block">
+                Enlace directo del catálogo (Tienda Oficial)
+              </label>
+              <a
+                href={catalogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] text-[#C05C77] hover:underline font-medium"
+              >
+                <span>Probar enlace</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
             <div className="flex items-center gap-2">
               <input
                 type="text"
                 readOnly
-                value={currentUrl}
+                value={catalogUrl}
                 className="w-full px-3 py-2 text-xs font-mono bg-stone-50 border border-stone-200 rounded-lg text-[#3A3335] select-all truncate"
               />
               <button

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { Menu, X, QrCode, Sparkles } from 'lucide-react';
+import { Menu, X, QrCode } from 'lucide-react';
 
 interface HeaderProps {
   onOpenQrModal: () => void;
-  onOpenArchitectureModal: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onOpenQrModal,
-  onOpenArchitectureModal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -83,24 +81,15 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </nav>
 
-          {/* Acciones Rápidas (QR y Preparación Futura) */}
+          {/* Acciones Rápidas (QR de Tienda) */}
           <div className="hidden sm:flex items-center space-x-3">
             <button
               onClick={onOpenQrModal}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#4A4245] bg-[#FCECEF] hover:bg-[#F8DDE4] border border-[#F4D6DC] transition-colors shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium text-[#4A4245] bg-[#FCECEF] hover:bg-[#F8DDE4] border border-[#F4D6DC] transition-colors shadow-2xs cursor-pointer"
               title="Código QR del catálogo para clientes en tienda"
             >
               <QrCode className="w-3.5 h-3.5 text-[#C05C77]" />
               <span>QR de Tienda</span>
-            </button>
-
-            <button
-              onClick={onOpenArchitectureModal}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#4A4245] bg-white hover:bg-stone-50 border border-stone-200 transition-colors shadow-2xs cursor-pointer"
-              title="Estructura preparada para Firestore, n8n, Telegram y Gemini"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#D47A92]" />
-              <span>Arquitectura</span>
             </button>
           </div>
 
@@ -159,17 +148,6 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <QrCode className="w-4 h-4 text-[#C05C77]" />
               <span>Ver QR para escanear en tienda</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenArchitectureModal();
-              }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-xs font-medium text-[#5C5356] bg-white border border-stone-200"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#C05C77]" />
-              <span>Ver Arquitectura (Firestore / n8n / Telegram)</span>
             </button>
           </div>
         </div>

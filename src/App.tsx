@@ -13,7 +13,6 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { QrModal } from './components/QrModal';
-import { ArchitectureGuideModal } from './components/ArchitectureGuideModal';
 import { useProducts } from './hooks/useProducts';
 import { AlertCircle } from 'lucide-react';
 
@@ -44,7 +43,6 @@ export default function App() {
 
   // Estados para modales de apoyo
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
-  const [isArchitectureModalOpen, setIsArchitectureModalOpen] = useState(false);
 
   // Scroll suave al catálogo
   const handleScrollToCatalog = () => {
@@ -71,7 +69,6 @@ export default function App() {
       {/* 1. Header con navegación e identidad de marca */}
       <Header
         onOpenQrModal={() => setIsQrModalOpen(true)}
-        onOpenArchitectureModal={() => setIsArchitectureModalOpen(true)}
       />
 
       {/* Contenedor Principal */}
@@ -142,12 +139,6 @@ export default function App() {
       <QrModal
         isOpen={isQrModalOpen}
         onClose={() => setIsQrModalOpen(false)}
-      />
-
-      {/* Modal de Arquitectura Futura (Firestore, n8n, Telegram, Gemini) */}
-      <ArchitectureGuideModal
-        isOpen={isArchitectureModalOpen}
-        onClose={() => setIsArchitectureModalOpen(false)}
       />
     </div>
   );
